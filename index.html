@@ -1,223 +1,58 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eligibility Check</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #f5f7fb;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 40px auto;
-            background: #ffffff;
-            padding: 30px 25px 35px;
-            border-radius: 10px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        h2 {
-            margin-top: 0;
-            text-align: center;
-            color: #1f3b57;
-        }
-
-        .question {
-            margin-bottom: 20px;
-        }
-
-        .question label {
-            font-weight: bold;
-            display: block;
-            margin-bottom: 10px;
-            color: #233142;
-        }
-
-        .option {
-            margin-bottom: 6px;
-        }
-
-        .option input {
-            margin-right: 6px;
-        }
-
-        .buttons {
-            margin-top: 15px;
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-        }
-
-        button {
-            padding: 10px 18px;
-            border-radius: 6px;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-        }
-
-        .primary {
-            background: #2563eb;
-            color: #ffffff;
-        }
-
-        .secondary {
-            background: #e5e7eb;
-            color: #111827;
-        }
-
-.headerRow {
-    position: relative;
-    margin-bottom: 20px;
-}
-
-.headerRow h2 {
-    margin: 0;
-    padding-right: 150px; /* prevents overlap with button */
-}
-
-.headerRow .restartBtn {
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
-.restartBtn {
-    background-color: #006400;
-    color: white;
-    padding: 3px 6px;   /* smaller padding */
-    border: none;
-    border-radius: 6px;  /* slightly smaller rounding */
-    font-size: 14px;     /* smaller text */
-    font-weight: bold;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;            /* smaller icon spacing */
-    transition: background-color 0.2s ease, transform 0.1s ease;
-}
-
-
-.restartBtn:hover {
-    background-color: #7ED957; /* slightly darker light green */
-}
-
-.restartBtn:active {
-    transform: scale(0.96);
-}
-#answerSummary {
-    color: black !important;
-}
-
-.stepInfo {
-    font-size: 15px;
-    color: black;
-    margin-bottom: 12px;
-    text-align: justify;   /* <-- This makes the text justified */
-}
-
-
-    .step {
-        position: relative;
-    }
-
-
-.footerNote {
-    font-size: 13px;
-    color: black;
-    opacity: 0.7;
-    margin-top: 20px;   /* space above footer */
-}
-.engBtn {
-    background-color: #cccccc;   /* grey */
-    color: black;
-    padding: 8px 14px;
-    border: none;
-    border-radius: 6px;
-    margin-right: 10px;
-    cursor: pointer;
-}
-
-.engBtn.active {
-    background-color: #007bff;   /* blue */
-    color: white;
-}
-
-
-
-    .fadeOut {
-        opacity: 0;
-        transition: opacity 0.5s ease;
-    }
-
-    .fadeIn {
-        opacity: 1;
-        transition: opacity 0.5s ease;
-    }
-
-        .primary:disabled {
-            background: #9ca3af;
-            cursor: not-allowed;
-        }
-
-        .message {
-            margin-top: 15px;
-            font-weight: 500;
-        }
-
-        .error {
-            color: #b91c1c;
-        }
-
-        .info {
-            color: #065f46;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        #whatsappSection {
-            margin-top: 20px;
-            border-top: 1px solid #e5e7eb;
-            padding-top: 15px;
-        }
-
-        #whatsappNumber {
-            padding: 8px;
-            width: 100%;
-            max-width: 260px;
-            border-radius: 4px;
-            border: 1px solid #d1d5db;
-        }
+        body { font-family: Arial, sans-serif; margin: 0; background: #f5f7fb; }
+        .container { max-width: 600px; margin: 40px auto; background: #ffffff; padding: 30px 25px 35px; border-radius: 10px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); }
+        h2 { margin-top: 0; text-align: center; color: #1f3b57; }
+        .question { margin-bottom: 20px; }
+        .question label { font-weight: bold; display: block; margin-bottom: 10px; color: #233142; }
+        .option { margin-bottom: 6px; }
+        .option input { margin-right: 6px; }
+        .buttons { margin-top: 15px; display: flex; justify-content: space-between; gap: 10px; }
+        button { padding: 10px 18px; border-radius: 6px; border: none; cursor: pointer; font-weight: 600; }
+        .primary { background: #2563eb; color: #ffffff; }
+        .secondary { background: #e5e7eb; color: #111827; }
+        .headerRow { position: relative; margin-bottom: 20px; text-align: center; }
+        .headerRow .restartBtn { position: absolute; top: 0; right: 0; }
+        .restartBtn { background-color: #006400; color: white; padding: 5px 10px; border: none; border-radius: 6px; font-size: 14px; font-weight: bold; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: background-color 0.2s ease, transform 0.1s ease; }
+        .restartBtn:hover { background-color: #7ED957; }
+        .restartBtn:active { transform: scale(0.96); }
+        #answerSummary { color: black !important; }
+        .stepInfo { font-size: 15px; color: black; margin-bottom: 12px; text-align: justify; }
+        .step { position: relative; }
+        .footerNote { font-size: 13px; color: black; opacity: 0.7; margin-top: 20px; }
+        .engBtn { background-color: #cccccc; color: black; padding: 8px 14px; border: none; border-radius: 6px; margin-right: 10px; cursor: pointer; }
+        .engBtn.active { background-color: #007bff; color: white; }
+        .fadeOut { opacity: 0; transition: opacity 0.5s ease; }
+        .fadeIn { opacity: 1; transition: opacity 0.5s ease; }
+        .primary:disabled { background: #9ca3af; cursor: not-allowed; }
+        .message { margin-top: 15px; font-weight: 500; }
+        .error { color: #b91c1c; }
+        .info { color: #065f46; }
+        .hidden { display: none; }
+        #whatsappSection { margin-top: 20px; border-top: 1px solid #e5e7eb; padding-top: 15px; }
     </style>
 </head>
-
 <body>
     <div class="container">
         <div class="headerRow">
-            <br>
-<h3 style="text-align: center;">Australia AHPRA Registration</h3>
-<h4 style="text-align: center;">New Streamlined Pathway Eligibility Check</h4>
-            <button type="button" class="headerRow restartBtn" onclick="restartEligibility()">
-            🔄 Start Again
-        </button>
- </div>
-        <form id="quizForm" onsubmit="return false;">
+            <button type="button" class="restartBtn" onclick="restartEligibility()">🔄 Start Again</button>
+            <h3 style="margin-top: 40px;">Australia AHPRA Registration</h3>
+            <h4>New Streamlined Pathway Eligibility Check</h4>
+        </div>
 
-            <!-- STEP 1: Qualification -->
+        <form id="quizForm" onsubmit="return false;">
             <div id="step1" class="step">
-                    <p class="stepInfo">
-        This is a tool to check your eligibility as a Registered nurse for the new AHPRA streamlined pathway.<br><br>
-        <strong>What is new streamlined pathway?</strong><br>
-        The streamlined pathway is an easier and faster way for experienced overseas nurses to get Australia AHPRA registration without NCLEX and OSCE exams<br><br>
-        Imp note: This tool is designed for the candidates who has have completed Nursing from <strong>India</strong>. For other nationals, take it as a reference only as the
-        standard of qualification might be diffrent when compared to Australian standard.<br><br>
-        Lets start eligiblity check.
-    </p>
+                <p class="stepInfo">
+                    This is a tool to check your eligibility as a Registered nurse for the new AHPRA streamlined pathway.<br><br>
+                    <strong>What is new streamlined pathway?</strong><br>
+                    The streamlined pathway is an easier and faster way for experienced overseas nurses to get Australia AHPRA registration without NCLEX and OSCE exams.<br><br>
+                    <em>Note: This tool is designed for candidates who have completed Nursing from <strong>India</strong>.</em>
+                </p>
                 <div class="question">
                     <label>What is your highest qualification?</label>
                     <div class="option"><input type="radio" name="q1" value="BSc Nursing"> BSc Nursing</div>
@@ -235,11 +70,9 @@
                 <p class="footerNote">Designed by: Shaji Sebastian & Jency James</p>
             </div>
 
-            <!-- STEP2: Extra question for MSc -->
             <div id="step2" class="step hidden">
-                
                 <div class="question">
-                    <label><strong>In which year did you complete BSc or Post BSc Nursing? (Please note, it is the completion year of BSc and not MSc)</strong></label><br>
+                    <label>In which year did you complete BSc or Post BSc Nursing?</label>
                     <div class="option"><input type="radio" name="q2" value="2017 or later"> 2017 or later</div>
                     <div class="option"><input type="radio" name="q2" value="Before 2017"> Before 2017</div>
                 </div>
@@ -248,11 +81,8 @@
                     <button type="button" class="secondary" onclick="backToStep(1)">Back</button>
                     <button type="button" class="primary" onclick="goFromStep2()">Next</button>
                 </div>
-                <p class="footerNote">Designed by: Shaji Sebastian & Jency James</p>
             </div>
 
-
-            <!-- STEP 3: Year -->
             <div id="step3" class="step hidden">
                 <div class="question">
                     <label>In which year did you complete your highest qualification?</label>
@@ -264,16 +94,14 @@
                     <button type="button" class="secondary" onclick="backToStep(1)">Back</button>
                     <button type="button" class="primary" onclick="goFromStep3()">Next</button>
                 </div>
-                <p class="footerNote">Designed by: Shaji Sebastian & Jency James</p>
             </div>
 
-            <!-- STEP 4: Country -->
             <div id="step4" class="step hidden">
                 <div class="question">
                     <label>Which country are you currently working in?</label>
                     <div class="option"><input type="radio" name="q4" value="UK"> UK</div>
                     <div class="option"><input type="radio" name="q4" value="Ireland"> Ireland</div>
-                    <div class="option"><input type="radio" name="q4" value="Canada"> Canada(BritishColumbia or Ontario)</div>
+                    <div class="option"><input type="radio" name="q4" value="Canada"> Canada</div>
                     <div class="option"><input type="radio" name="q4" value="US"> US</div>
                     <div class="option"><input type="radio" name="q4" value="Spain"> Spain</div>
                     <div class="option"><input type="radio" name="q4" value="Singapore"> Singapore</div>
@@ -284,13 +112,11 @@
                     <button type="button" class="secondary" onclick="backToStep(3)">Back</button>
                     <button type="button" class="primary" onclick="goFromStep4()">Next</button>
                 </div>
-                <p class="footerNote">Designed by: Shaji Sebastian & Jency James</p>
             </div>
-            
-                  <!-- STEP 5: CBT OSCE Pass -->
+
             <div id="step5" class="step hidden">
                 <div class="question">
-                    <label>Have you successfully completed an examination process (eg CBT and OSCE for UK) for internationally qualified registered nurses that led to registration in this country?</label>
+                    <label>Have you passed the registration exams (CBT/OSCE) in that country?</label>
                     <div class="option"><input type="radio" name="q5" value="Yes"> Yes</div>
                     <div class="option"><input type="radio" name="q5" value="No"> No</div>
                 </div>
@@ -299,13 +125,11 @@
                     <button type="button" class="secondary" onclick="backToStep(4)">Back</button>
                     <button type="button" class="primary" onclick="goFromStep5()">Next</button>
                 </div>
-                <p class="footerNote">Designed by: Shaji Sebastian & Jency James</p>
             </div>
 
-            <!-- STEP 6: Hours -->
             <div id="step6" class="step hidden">
                 <div class="question">
-                    <label>Do you have at least 1800 hours of work experience in your current country?</label>
+                    <label>Do you have at least 1800 hours of work experience there?</label>
                     <div class="option"><input type="radio" name="q6" value="Yes"> Yes</div>
                     <div class="option"><input type="radio" name="q6" value="No"> No</div>
                 </div>
@@ -314,572 +138,149 @@
                     <button type="button" class="secondary" onclick="backToStep(5)">Back</button>
                     <button type="button" class="primary" onclick="finishEligibility()">Check Eligibility</button>
                 </div>
-
- 
             </div>
-
         </form>
 
-
-        <div id="answerSummary" class="message info" style="margin-top:15px;"></div>
+        <div id="answerSummary" class="message info hidden"></div>
         <div id="resultMessage" class="message"></div>
-        <div id="englishQuestion" class="hidden">
-    <p>Do you want to know about the English language requirement?</p>
-    <button class="engBtn" onclick="englishYes(this)">Yes</button>
-    <button class="engBtn" onclick="englishNo(this)">No</button>
-    </div>
 
-         <div id="EnglishNoMessage" class="hidden message info">
-            Thanks. I hope you already know about English language requirement.
+        <div id="englishQuestion" class="hidden">
+            <p>Do you want to know about the English language requirement?</p>
+            <button type="button" class="engBtn" onclick="englishYes(this)">Yes</button>
+            <button type="button" class="engBtn" onclick="englishNo(this)">No</button>
         </div>
+
+        <div id="EnglishNoMessage" class="hidden message info">Thanks. We hope you are prepared for the English requirements.</div>
 
         <div id="ieltsValidityQuestion" class="hidden">
-        <p>Do you have a valid (2Years) IELTS/OET/PTE score?</p>
-            <button class="engBtn" onclick="ieltsYes(this)">Yes</button>
-            <button class="engBtn" onclick="ieltsNo(this)">No</button>
+            <p>Do you have a valid (2 Years) IELTS/OET/PTE score?</p>
+            <button type="button" class="engBtn" onclick="ieltsYes(this)">Yes</button>
+            <button type="button" class="engBtn" onclick="ieltsNo(this)">No</button>
         </div>
 
-        <div id="ieltsValidMessage" class="hidden message info">
-            Great, you may be able reuse your valid English test result. For confirmation, please feel free to contact via the below WhatsApp link.
-        </div>
-         <div id="ieltsExpiredMessage" class="hidden message info">
-            No worries. The good news is that expired results may still be accepted for the streamlined pathway under <strong>certain conditions</strong>, depending on your profile.<br>
-            Please contact via the below WhatsApp link if you want to know whether your expired English test results meet the required conditions and can be reused for AHPRA registration.
-        </div>
-
+        <div id="ieltsValidMessage" class="hidden message info">Great! You may be able to reuse your results.</div>
+        <div id="ieltsExpiredMessage" class="hidden message info">Expired results might still be accepted under specific conditions.</div>
 
         <div id="whatsappSection" class="hidden">
-            <p class="info">Do you have any doubts? Simply ask in WhatsApp</p>
-            <a href="https://chat.whatsapp.com/DgauJpD3jcU2sL3WPKB1YJ?mode=hq1tcla" target="_blank" style="
-           display:inline-block;
-           background:#25D366;
-           color:white;
-           padding:10px 18px;
-           border-radius:6px;
-           font-weight:600;
-           text-decoration:none;
-           margin-bottom:12px;
-       ">
-                Join WhatsApp Group
-            </a>
-
-            <button type="button" class="primary" onclick="sendWhatsAppMessage()">
-                Ask your query in WhatsApp
-            </button>
-              <p class="footerNote">Designed by: Shaji Sebastian & Jency James</p>
+            <p class="info">Any doubts? Ask us on WhatsApp:</p>
+            <button type="button" class="primary" onclick="sendWhatsAppMessage()">Message us on WhatsApp</button>
+            <p class="footerNote">Designed by: Shaji Sebastian & Jency James</p>
         </div>
-
     </div>
 
     <script>
         let answers = {};
-        function showStep(stepNumber) {
-            for (let i = 1; i <= 6; i++) {
-                document.getElementById("step" + i).classList.add("hidden");
-            }
-            document.getElementById("step" + stepNumber).classList.remove("hidden");
+
+        function showStep(n) {
+            document.querySelectorAll('.step').forEach(s => s.classList.add('hidden'));
+            document.getElementById('step' + n).classList.remove('hidden');
         }
 
-        function backToStep(stepNumber) {
+        function backToStep(n) {
             document.getElementById("resultMessage").innerHTML = "";
-            document.getElementById("resultMessage").className = "message";
             document.getElementById("whatsappSection").classList.add("hidden");
-            showStep(stepNumber);
+            showStep(n);
         }
 
         function goFromStep1() {
             let q1 = document.querySelector('input[name="q1"]:checked');
-            let msg = document.getElementById("msg1");
-            msg.classList.add("hidden");
-            msg.innerHTML = "";
-
-            if (!q1) {
-                msg.innerHTML = "Please select your highest qualification.";
-                msg.classList.remove("hidden");
-                return;
-            }
-
+            if (!q1) { document.getElementById("msg1").classList.remove("hidden"); return; }
             answers.q1 = q1.value;
-
-
-
-            if (q1.value === "GNM") {
-                showNotEligible("You are not eligible for AHPRA registration using the new streamlined pathway, as your qualification is a diploma course.<br><br>" +
-                    "You will become eligible if you take Post Bsc Nursing or GCAN");
-                // Disable the Next button in Step 1
-                document.querySelector("#step1 button.primary").disabled = true;
-                       // Disable the footer note
-   document.querySelector("#step1 .footerNote").classList.add("hidden");
-                // Disable all the course input radio buttons
-                document.querySelectorAll('input[name="q1"]').forEach(radio => {
-                    if (radio.value !== "Other") {
-                        radio.disabled = true;
-                    }
-                });
-                return;
-            }
-
-            if (q1.value === "Other") {
-                showInfo("If your qualification is not listed here, please ask your query in the below WhatsApp link to know about your eligibility.");
-                // Disable the Next button in Step 1
-                document.querySelector("#step1 button.primary").disabled = true;
-                // Disable the footer note
-   document.querySelector("#step1 .footerNote").classList.add("hidden");
-
-
-                // Disable all the course input radio buttons
-                document.querySelectorAll('input[name="q1"]').forEach(radio => {
-                    if (radio.value !== "Other") {
-                        radio.disabled = true;
-                    }
-                });
-
-                document.getElementById("whatsappSection").classList.remove("hidden");
-                return;
-            }
-
-            // Show extra question ONLY for MSc Nursing
-            if (q1.value === "MSc Nursing") {
-                showStep(2);
-            }
-            else {
-                showStep(3);
-            }
-
-
-
+            if (q1.value === "GNM") { showNotEligible("GNM is not eligible for this pathway."); return; }
+            if (q1.value === "Other") { showInfo("Please contact us via WhatsApp for 'Other' qualifications."); document.getElementById("whatsappSection").classList.remove("hidden"); return; }
+            q1.value === "MSc Nursing" ? showStep(2) : showStep(3);
         }
 
         function goFromStep2() {
             let q2 = document.querySelector('input[name="q2"]:checked');
-            let msg2 = document.getElementById("msg2");
-            msg2.classList.add("hidden");
-            msg2.innerHTML = "";
-
-            if (!q2) {
-                msg2.innerHTML = "Please select the passout year of BSc / Post BSc";
-                msg2.classList.remove("hidden");
-                return;
-            }
-
+            if (!q2) return;
             answers.q2 = q2.value;
-
-            if (q2.value === "Before 2017") {
-                showNotEligible("You are not eligible for AHPRA registration using the new streamlined pathway.<br><br>" +
-                    "However, you may be eligible for AHPRA registration using normal OBA pathway");
-                // Disable the Next button in Step 2
-                document.querySelector("#step2 button.primary").disabled = true;
-                // Disable the Back button
-                document.querySelector("#step2 button.secondary").disabled = true;
-                       // Disable the footer note
-   document.querySelector("#step2 .footerNote").classList.add("hidden");
-                //Disable all year of year of BSc input radio buttons
-                document.querySelectorAll('input[name="q2"]').forEach(radio => {
-                    radio.disabled = true;
-                });
-
-                return;
-            }
-
-            showStep(4);
+            q2.value === "Before 2017" ? showNotEligible("Must be 2017 or later.") : showStep(4);
         }
-
 
         function goFromStep3() {
             let q3 = document.querySelector('input[name="q3"]:checked');
-            let msg3 = document.getElementById("msg3");
-            msg3.classList.add("hidden");
-            msg3.innerHTML = "";
-            if (!q3) {
-                msg3.innerHTML = "Please select any answer";
-                msg3.classList.remove("hidden");
-                return;
-            }
+            if (!q3) return;
             answers.q3 = q3.value;
-
-            if (q3.value === "Before 2017") {
-                showNotEligible("You are not eligible for AHPRA registration using the new streamlined pathway.<br><br>" +
-                    "However, you will be eligible for AHPRA registration using normal OBA pathway");
-                // Disable the Next button in Step 3
-                document.querySelector("#step3 button.primary").disabled = true;
-                // Disable the Back button
-                document.querySelector("#step3 button.secondary").disabled = true;
-                       // Disable the footer note
-   document.querySelector("#step3 .footerNote").classList.add("hidden");
-                //Disable all year of year of BSc input radio buttons
-                document.querySelectorAll('input[name="q3"]').forEach(radio => {
-                    radio.disabled = true;
-                });
-
-                return;
-            }
-
-            showStep(4);
+            q3.value === "Before 2017" ? showNotEligible("Must be 2017 or later.") : showStep(4);
         }
 
         function goFromStep4() {
             let q4 = document.querySelector('input[name="q4"]:checked');
-            let msg4 = document.getElementById("msg4");
-            msg4.classList.add("hidden");
-            msg4.innerHTML = "";
-
-            if (!q4) {
-                msg4.innerHTML = "Please select the country where you are working.";
-                msg4.classList.remove("hidden");
-                return;
-            }
-
+            if (!q4) return;
             answers.q4 = q4.value;
-
-            if (q4.value === "Other") {
-                showNotEligible("  You are not eligible for AHPRA registration using the new streamlined pathway.<br><br>" +
-                    "However, if you have ever worked in these countries after 2017, you may be eligible. " +
-                    "If so, please feel free to ask your query in the below WhatsApp link to get more clarification.");
-                // Disable the Next button in Step 4
-                document.querySelector("#step4 button.primary").disabled = true;
-                // Disable the Back button
-                document.querySelector("#step4 button.secondary").disabled = true;
-                       // Disable the footer note
-   document.querySelector("#step4 .footerNote").classList.add("hidden");
-                // Disable all country input radio buttons
-                document.querySelectorAll('input[name="q4"]').forEach(radio => {
-                    radio.disabled = true;
-                });
-
-                // show whatsapp section
-                document.getElementById("whatsappSection").classList.remove("hidden");
-                return;
-            }
-
-            showStep(5);
+            q4.value === "Other" ? showNotEligible("Country not in streamlined list.") : showStep(5);
         }
-
 
         function goFromStep5() {
             let q5 = document.querySelector('input[name="q5"]:checked');
-            let msg5 = document.getElementById("msg5");
-            msg5.classList.add("hidden");
-            msg5.innerHTML = "";
-
-            if (!q5) {
-                msg5.innerHTML = "Please select any option";
-                msg5.classList.remove("hidden");
-                return;
-            }
-
+            if (!q5) return;
             answers.q5 = q5.value;
-
-            if (q5.value === "No") {
-                showNotEligible("You are not eligible for AHPRA registration using the new streamlined pathway.<br><br>" +
-                    "However, you might be eligible for normal OBA pathway.");
-                // Disable the Next button in Step 4
-                document.querySelector("#step5 button.primary").disabled = true;
-                // Disable the Back button
-                document.querySelector("#step5 button.secondary").disabled = true;
-                       // Disable the footer note
-   document.querySelector("#step5 .footerNote").classList.add("hidden");
-                // Disable all OSCE Pass input radio buttons
-                document.querySelectorAll('input[name="q5"]').forEach(radio => {
-                    radio.disabled = true;
-                });
-
-                // disable whatsapp section
-                document.getElementById("whatsappSection").classList.add("hidden");
-                return;
-            }
-
-            showStep(6);
+            q5.value === "No" ? showNotEligible("Registration exams are required.") : showStep(6);
         }
-
 
         function finishEligibility() {
             let q6 = document.querySelector('input[name="q6"]:checked');
-            let msg6 = document.getElementById("msg6");
-            msg6.classList.add("hidden");
-            msg6.innerHTML = "";
-
-            if (!q6) {
-                msg6.innerHTML = "Please select whether you have 1800 hours of experience.";
-                msg6.classList.remove("hidden");
-                return;
-            }
-                // Disable the Back button
-                document.querySelector("#step6 button.secondary").disabled = true;
-        
-        // Hide English questions
-    if (document.getElementById("englishQuestion")) {
-        document.getElementById("englishQuestion").classList.add("hidden");
-    }
-          if (document.getElementById("EnglishYesMessage")) {
-        document.getElementById("EnglishNoMessage").classList.add("hidden");
-          }
-            if (document.getElementById("EnglishNoMessage")) {
-        document.getElementById("EnglishNoMessage").classList.add("hidden");
-    }
-     if (document.getElementById("ieltsValidityQuestion")) {
-        document.getElementById("ieltsValidityQuestion").classList.add("hidden");
-    }
-    
-      if (document.getElementById("ieltsValidMessage")) {
-        document.getElementById("ieltsValidMessage").classList.add("hidden");
-    }
-       if (document.getElementById("ieltsExpiredMessage")) {
-        document.getElementById("ieltsExpiredMessage").classList.add("hidden");
-    }
-
+            if (!q6) return;
             answers.q6 = q6.value;
-
-
-
-    // Build the summary dynamically
-    let summaryHTML = 
-        "<strong>Your response:</strong><br>" +
-        "Highest Qualification: " + (answers.q1 || "") + "<br>";
-
-    // Condition 1: If MSc Nursing → show BSc/PostBSc year
-    if (answers.q1 === "MSc Nursing") {
-        summaryHTML += 
-            "Year of BSc/PostBSc Qualification: " + (answers.q2 || "") + "<br>";
-    }
-
-    // Condition 2: If NOT MSc Nursing → show normal qualification year
-    if (answers.q1 !== "MSc Nursing") {
-        summaryHTML += 
-            "Year of Qualification: " + (answers.q3 || "") + "<br>";
-    }
-
-    // Continue the rest of the summary
-    summaryHTML +=
-        "Working Country: " + (answers.q4 || "") + "<br>" +
-        "Passed competency examination in your current country: " + (answers.q5 || "") + "<br>" +
-        "1800 Hours Experience: " + (answers.q6 || "");
-
-    // Apply the summary
-    document.getElementById("answerSummary").className = "message info";
-    document.getElementById("answerSummary").innerHTML = summaryHTML;
-
-    // Result message
-    document.getElementById("resultMessage").className = "message";
-    if (q6.value === "No") {
-    document.getElementById("resultMessage").innerHTML =
-        "You will become eligible soon for the new streamlined pathway." +
-        "<br><br>" +
-        "<h3 style='color: green; font-weight: bold;'>Great news! There is a high chance that you become eligible for AHPRA nursing registration using the new streamlined pathway.</h3>" +
-        "<p style='color: green; font-weight: bold;'>For final confirmation, please feel free to contact via WhatsApp link given below.</p>" +
-        "<p style='color: black; font-weight: bold;'>English Langauge requirement</p>"
-    }
-    if (q6.value === "Yes") {
-       document.getElementById("resultMessage").innerHTML =
-        "You meet the basic criteria for the new streamlined pathway." +
-        "<br><br>" +
-        "<h3 style='color: green; font-weight: bold;'>Great news! There is a high chance that you become eligible for AHPRA nursing registration using the new streamlined pathway.</h3>" +
-        "<p style='color: green; font-weight: bold;'>For final confirmation, please feel free to contact via WhatsApp link given below.</p>"+
-        "<p style='color: black; font-weight: bold;'>English Langauge requirement</p>";
-    }
-        // Show English Question
-       document.getElementById("englishQuestion").classList.remove("hidden");
-       // reset the previous ticked status of Yes/No button english questions
-        document.querySelectorAll(".engBtn").forEach(btn => {
-        btn.classList.remove("active");
-        })
-
-    // Show WhatsApp section
-    document.getElementById("whatsappSection").classList.remove("hidden");
-
-    // Disable Back button
-    document.querySelector("#step5 button.secondary").disabled = true;
-
-    return;
-}
-
+            
+            document.getElementById("answerSummary").classList.remove("hidden");
+            document.getElementById("answerSummary").innerHTML = "Qualification: " + answers.q1 + "<br>Country: " + answers.q4;
+            document.getElementById("resultMessage").innerHTML = "<h3 style='color:green'>High chance of eligibility!</h3>";
+            document.getElementById("englishQuestion").classList.remove("hidden");
+            document.getElementById("whatsappSection").classList.remove("hidden");
+            showStep(0); // Hide steps
+        }
 
         function showNotEligible(text) {
             document.getElementById("resultMessage").className = "message error";
             document.getElementById("resultMessage").innerHTML = text;
-            document.getElementById("whatsappSection").classList.add("hidden");
         }
 
         function showInfo(text) {
             document.getElementById("resultMessage").className = "message info";
             document.getElementById("resultMessage").innerHTML = text;
-            document.getElementById("whatsappSection").classList.add("hidden");
         }
 
-function restartEligibility() {
+        function restartEligibility() {
+            location.reload(); 
+        }
 
-    // Clear stored answers
-    answers = {};
+        function englishYes(btn) {
+            setActive(btn);
+            document.getElementById("ieltsValidityQuestion").classList.remove("hidden");
+            document.getElementById("EnglishNoMessage").classList.add("hidden");
+        }
 
-    // Clear all radio buttons
-    document.querySelectorAll('input[type="radio"]').forEach(r => {
-        r.checked = false;
-        r.disabled = false;
-    });
+        function englishNo(btn) {
+            setActive(btn);
+            document.getElementById("EnglishNoMessage").classList.remove("hidden");
+            document.getElementById("ieltsValidityQuestion").classList.add("hidden");
+        }
 
-    document.querySelectorAll(".message").forEach(msg => {
-    // Only clear dynamic messages, not static ones
-    if (
-        msg.id !== "EnglishNoMessage" &&
-        msg.id !== "ieltsValidMessage" &&
-        msg.id !== "ieltsExpiredMessage"
-    ) {
-        msg.innerHTML = "";
-    }
-    msg.classList.add("hidden");
-});
+        function ieltsYes(btn) {
+            setActive(btn);
+            answers.ielts = "Valid";
+            document.getElementById("ieltsValidMessage").classList.remove("hidden");
+            document.getElementById("ieltsExpiredMessage").classList.add("hidden");
+        }
 
+        function ieltsNo(btn) {
+            setActive(btn);
+            answers.ielts = "Expired/None";
+            document.getElementById("ieltsExpiredMessage").classList.remove("hidden");
+            document.getElementById("ieltsValidMessage").classList.add("hidden");
+        }
 
-    // Hide WhatsApp section
-    document.getElementById("whatsappSection").classList.add("hidden");
+        function setActive(btn) {
+            btn.parentElement.querySelectorAll('.engBtn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
 
-    // Clear result message
-    document.getElementById("resultMessage").innerHTML = "";
-
-    // Clear summary
-    if (document.getElementById("answerSummary")) {
-        document.getElementById("answerSummary").innerHTML = "";
-    }
-
-    // Hide extra MSc question
-    if (document.getElementById("extraMScQuestion")) {
-        document.getElementById("extraMScQuestion").classList.add("hidden");
-    }
-
-    // -----------------------------
-    // RESET ENGLISH QUESTION FLOW
-    // -----------------------------
-
-    // Hide English question
-    document.getElementById("englishQuestion").classList.add("hidden");
-
-    // Hide English NO message
-    document.getElementById("EnglishNoMessage").classList.add("hidden");
-
-    // Hide IELTS validity question
-    document.getElementById("ieltsValidityQuestion").classList.add("hidden");
-
-    // Hide IELTS valid/expired messages (if you have them)
-    if (document.getElementById("ieltsValidMessage")) {
-        document.getElementById("ieltsValidMessage").classList.add("hidden");
-    }
-    if (document.getElementById("ieltsExpiredMessage")) {
-        document.getElementById("ieltsExpiredMessage").classList.add("hidden");
-    }
-
-    // Reset English button active states
-    document.querySelectorAll(".engBtn").forEach(btn => {
-        btn.classList.remove("active");
-    });
-
-    // -----------------------------
-    // RESET BUTTONS & FOOTER
-    // -----------------------------
-    document.querySelectorAll(".step button").forEach(btn => {
-        btn.disabled = false;
-    });
-
-    document.querySelectorAll(".footerNote").forEach(el => {
-        el.classList.remove("hidden");
-    });
-
-    // Go back to Step 1
-    showStep(1);
-}
-
-
-function sendWhatsAppMessage() {
-
-    let number = "61467971690"; // correct format for wa.me
-
-    // Build message dynamically
-    let message =
-        "Hello, I have completed the AHPRA streamlined pathway eligibility check.%0A%0A" +
-        "My Answers:%0A" +
-        "Highest Qualification: " + (answers.q1 || "") + "%0A";
-
-    // Condition 1: If MSc Nursing → show BSc/PostBSc year
-    if (answers.q1 === "MSc Nursing") {
-        message += "Year of BSc/PostBSc Qualification: " + (answers.q2 || "") + "%0A";
-    }
-
-    // Condition 2: If NOT MSc Nursing → show normal qualification year
-    if (answers.q1 !== "MSc Nursing") {
-        message += "Year of Qualification: " + (answers.q3 || "") + "%0A";
-    }
-
-    // Continue remaining fields
-    message +=
-        "Working Country: " + (answers.q4 || "") + "%0A" +
-        "Passed competency examination in your current country: " + (answers.q5 || "") + "%0A" +
-        "1800 Hours Experience: " + (answers.q6 || "") + "%0A" +
-        "Valid English test: " + (answers.ieltsValidity || "") + "%0A %0A" +
-        "I have some doubts and would like to get more information.";
-
-    // Open WhatsApp
-    let url = "https://wa.me/" + number + "/?text=" + message;
-    window.open(url, "_blank");
-}
-
-function englishYes(btn) {
-    setActiveEnglishQuestionButton(btn);
-    document.getElementById("englishQuestion").classList.remove("hidden");
-    document.getElementById("EnglishNoMessage").classList.add("hidden");
-    document.getElementById("ieltsValidMessage").classList.add("hidden");
-    document.getElementById("ieltsExpiredMessage").classList.add("hidden");
-    document.getElementById("ieltsValidityQuestion").classList.remove("hidden");
-    // answers.q7 = EnglishQuestion.value;
-}
-
-function englishNo(btn) {
-    setActiveEnglishQuestionButton(btn);
-    document.getElementById("englishQuestion").classList.remove("hidden");
-    document.getElementById("EnglishNoMessage").classList.remove("hidden");
-    document.getElementById("ieltsValidMessage").classList.add("hidden");
-    document.getElementById("ieltsExpiredMessage").classList.add("hidden");
-    document.getElementById("ieltsValidityQuestion").classList.add("hidden");
-    // answers.q7 = EnglishQuestion.value;
-    // Do nothing else — user is not interested
-}
-
-function ieltsYes(btn) {
-    setActiveIeltsQuestionButton(btn);
-    document.getElementById("ieltsValidityQuestion").classList.remove("hidden");
-    document.getElementById("ieltsExpiredMessage").classList.add("hidden");
-    document.getElementById("ieltsValidMessage").classList.remove("hidden");
-    answers.ieltsValidity = "Yes";
-}
-
-function ieltsNo(btn) {
-    setActiveIeltsQuestionButton(btn);
-    document.getElementById("ieltsValidityQuestion").classList.remove("hidden");
-    document.getElementById("ieltsValidMessage").classList.add("hidden");
-    document.getElementById("ieltsExpiredMessage").classList.remove("hidden");
-   answers.ieltsValidity = "No";
-    // You can add another message here if needed
-}
-function setActiveEnglishQuestionButton(btn) {
-    // Reset all buttons in this question
-    document.querySelectorAll("#englishQuestion .engBtn").forEach(b => {
-        // document.querySelectorAll(".engBtn").forEach(b => {
-        b.classList.remove("active");
-    });
-
-    // Activate the clicked button
-    btn.classList.add("active");
-}
-function setActiveIeltsQuestionButton(btn) {
-    // Reset all buttons in this question
-    document.querySelectorAll("#ieltsValidityQuestion .engBtn").forEach(b => {
-        // document.querySelectorAll(".engBtn").forEach(b => {
-        b.classList.remove("active");
-    });
-
-    // Activate the clicked button
-    btn.classList.add("active");
-}
-
+        function sendWhatsAppMessage() {
+            let msg = `Hello, I checked my AHPRA eligibility. %0A Qualification: ${answers.q1} %0A Country: ${answers.q4}`;
+            window.open(`https://wa.me/61467971690?text=${msg}`, "_blank");
+        }
     </script>
-
 </body>
-
 </html>
